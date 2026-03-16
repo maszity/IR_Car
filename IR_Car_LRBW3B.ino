@@ -5,7 +5,7 @@ int IR_SensorR = 9;
 //motor pin
 int driveLF = 1;  //Drive Left Forward
 int deriveLB = 2;
-//A hatra irany egyenlore csak fejlesztesi lehetoseg
+//A hatra irany egyelore csak fejlesztesi lehetoseg
 int driveRF = 4;
 int driveRB = 5;
 
@@ -14,7 +14,7 @@ int driveRB = 5;
 //#define ENBSpeed 120
 
 //analog speed
-//A sebessegvaltoztatas egyenlore csak fejlesztesi lehetoseg.
+//A sebessegvaltoztatas csak fejlesztesi lehetoseg.
 //A jumperek helzs beallitasaval es a pin-re torteno analog kimenet adasaval a motoros sebessege allithato.
 int ENA = 6;
 int ENB = 3;
