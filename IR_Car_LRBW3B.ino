@@ -1,31 +1,34 @@
 //sensor pin
-int Sensor1 = 8;
-int Sensor2 = 9;
+int IR_SensorL = 8;
+int IR_SensorR = 9;
 
 //motor pin
-int in1 = 1;
-int in2 = 2;
-int in3 = 4;
-int in4 = 5;
+int driveLF = 1;  //Drive Left Forward
+int deriveLB = 2;
+//A hatra irany egyenlore csak fejlesztesi lehetoseg
+int driveRF = 4;
+int driveRB = 5;
 
 //motor speed
 //#define ENASpeed 120
 //#define ENBSpeed 120
 
 //analog speed
+//A sebessegvaltoztatas egyenlore csak fejlesztesi lehetoseg.
+//A jumperek helzs beallitasaval es a pin-re torteno analog kimenet adasaval a motoros sebessege allithato.
 int ENA = 6;
 int ENB = 3;
 
 void setup() {
   // put your setup code here, to run once:
 //sensor pin
-pinMode(Sensor1, INPUT);
-pinMode(Sensor2, INPUT);
+pinMode(IR_SensorL, INPUT);
+pinMode(IR_SensorR, INPUT);
 //motor pin
-pinMode(in1, OUTPUT); //bal elore
-pinMode(in2, OUTPUT); //bal hatra
-pinMode(in3, OUTPUT); //jobb hatra
-pinMode(in4, OUTPUT); //jobb elore
+pinMode(driveLF, OUTPUT); //bal elore
+pinMode(deriveLB, OUTPUT); //bal hatra
+pinMode(driveRF, OUTPUT); //jobb hatra
+pinMode(driveRB, OUTPUT); //jobb elore
 //motor speed
 pinMode(ENA, OUTPUT);
 pinMode(ENB, OUTPUT);
@@ -35,26 +38,40 @@ void loop() {
 //ena/b speed
 //analogWrite(ENA, ENASpeed);
 //analogWrite(ENB, ENBSpeed);
+  
 //sensor read
-Sensor1 = digitalRead(8);
-Sensor2 = digitalRead(9);
+IR_SensorL = digitalRead(8);
+IR_SensorR = digitalRead(9);
          
 //-------------------------------FőProgram-----------------------------------
-
 //elore 
-if(Sensor1 == LOW && Sensor2 == LOW){
-  digitalWrite(in1, HIGH);
-  digitalWrite(in4, HIGH);
+if(IR_SensorL == LOW && SenIR_SensorRsor2 == LOW){
+  elore();
 }
 
 //balra
-if (Sensor1 == HIGH){
-  digitalWrite(in1, HIGH);
-  digitalWrite(in4, LOW);
-  }
+if (IR_SensorL == HIGH && IR_SensorR == LOW){
+  balra();
+}
+  
  //jobbra
-if (Sensor2 == HIGH){
-  digitalWrite(in1, LOW);
-  digitalWrite(in4, HIGH);
-  }
+if (IR_SensorL == LOW && IR_SensorR == HIGH){
+  jobbra();
+} 
+  
+}
+
+void elore(){
+  digitalWrite(driveLF, HIGH);
+  digitalWrite(driveRF, HIGH);    
+}
+
+void balra(){
+  digitalWrite(driveLF, HIGH);
+  digitalWrite(driveRF, LOW);
+}
+
+void jobbra(){
+  digitalWrite(driveLF, LOW);
+  digitalWrite(driveRF, HIGH);
 }
