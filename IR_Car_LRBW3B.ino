@@ -15,7 +15,7 @@ int driveRB = 5;
 
 //analog speed
 //A sebessegvaltoztatas csak fejlesztesi lehetoseg.
-//A jumperek helzs beallitasaval es a pin-re torteno analog kimenet adasaval a motoros sebessege allithato.
+//A jumperek helyes beallitasaval es a pin-re torteno analog kimenet adasaval a motoros sebessege allithato.
 int ENA = 6;
 int ENB = 3;
 
